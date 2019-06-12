@@ -4,6 +4,7 @@ package com.employee.employee;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,20 +15,21 @@ public class Employee implements 	Serializable  {
 	private Long emplyeeId ;
 	private String Name;
 	private String LastName ; 
+	@Column(length=70)
 	private String Gender; 
-	private Date Birthday;
+
 	private Integer IdentityNumber;
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Employee(String name, String lastName, String gender, Date birthday,
+	public Employee(String name, String lastName, String gender,
 			Integer identityNumber) {
 		super();
 		Name = name;
 		LastName = lastName;
 		Gender = gender;
-		Birthday = birthday;
+	
 		IdentityNumber = identityNumber;
 	}
 	public Long getEmplyeeId() {
@@ -54,12 +56,7 @@ public class Employee implements 	Serializable  {
 	public void setGender(String gender) {
 		Gender = gender;
 	}
-	public Date getBirthday() {
-		return Birthday;
-	}
-	public void setBirthday(Date birthday) {
-		Birthday = birthday;
-	}
+	
 	public Integer getIdentityNumber() {
 		return IdentityNumber;
 	}
