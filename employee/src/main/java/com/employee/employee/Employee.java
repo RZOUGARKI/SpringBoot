@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 @Entity
 public class Employee implements 	Serializable  {
 	//il faut utiliser les classes avec majiscule par ce que l'id doit etre un objet 
@@ -17,8 +19,10 @@ public class Employee implements 	Serializable  {
 	private String LastName ; 
 	@Column(length=70)
 	private String Gender; 
-
 	private Integer IdentityNumber;
+	@ManyToOne
+	@JoinColumn(name="id_Language")
+	private Employee_Language emplanguage;
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -62,6 +66,21 @@ public class Employee implements 	Serializable  {
 	}
 	public void setIdentityNumber(Integer identityNumber) {
 		IdentityNumber = identityNumber;
+	}
+	public Employee_Language getEmplanguage() {
+		return emplanguage;
+	}
+	public void setEmplanguage(Employee_Language emplanguage) {
+		this.emplanguage = emplanguage;
+	}
+	public Employee(String name, String lastName, String gender,
+			Integer identityNumber, Employee_Language emplanguage) {
+		super();
+		Name = name;
+		LastName = lastName;
+		Gender = gender;
+		IdentityNumber = identityNumber;
+		this.emplanguage = emplanguage;
 	} 
 
 }
