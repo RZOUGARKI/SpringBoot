@@ -15,7 +15,17 @@ public class Employee_Language implements Serializable {
 	
 	private String Language;
 	private String Fluency ; 
-	private String Competency; 
+	private String Competency;
+	public Employee_Language(String language, String fluency, String competency) {
+		super();
+		Language = language;
+		Fluency = fluency;
+		Competency = competency;
+	}
+	public Employee_Language() {
+		super();
+		// TODO Auto-generated constructor stub
+	} 
 	
 	
 }

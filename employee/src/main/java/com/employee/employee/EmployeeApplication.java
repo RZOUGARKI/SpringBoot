@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.employee.dao.EntityRepository;
+import com.employee.employee.dao.EntityRepository;
 
 @SpringBootApplication
 public class EmployeeApplication {
@@ -18,6 +18,10 @@ public class EmployeeApplication {
 	employeedao.save(new Employee("Zayneb","Bousselmi","female", 99));
 	employeedao.save(new Employee("Basma","Bousselmi","female",  99));
 	employeedao.save(new Employee("Abderrazak","Bousselmi","male",  99));
-	}
+
+	Employee emp1 = employeedao.findOne((long) 1);
+	System.out.println(emp1.getName());
+	System.out.println(emp1.getGender());
+	System.out.println(emp1.getIdentityNumber());	}
 
 }

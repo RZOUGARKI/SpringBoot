@@ -1,4 +1,4 @@
-package com.employee.dao;
+package com.employee.employee.dao;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import com.employee.employee.Employee;
 public class EmployeeDaoImpl implements EntityRepository<Employee>{
 	@PersistenceContext
 	private EntityManager em ;
-	
+
 	@Override
 	public Employee save(Employee p) {
 		em.persist(p);
@@ -30,16 +30,16 @@ public class EmployeeDaoImpl implements EntityRepository<Employee>{
 	@Override
 	public List<Employee> findAll() {
 		javax.persistence.Query req = em.createQuery("select p from Employee");
-		
-		
+
+
 		return req.getResultList();
 	}
 
 	@Override
 	public Employee findOne(Long emplyeeId) {
 		Employee p =em.find(Employee.class, emplyeeId);
-		
-		
+
+
 		return p;
 	}
 
@@ -52,7 +52,7 @@ public class EmployeeDaoImpl implements EntityRepository<Employee>{
 	@Override
 	public void delete(Long emplyeeId) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
